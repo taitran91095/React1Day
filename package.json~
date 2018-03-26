@@ -1,0 +1,29 @@
+{
+  "name": "react1day",
+  "version": "0.0.1",
+  "description": "Learn Reat in 1 day",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taitran91095/React1Day.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Tai Tran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taitran91095/React1Day/issues"
+  },
+  "homepage": "https://github.com/taitran91095/React1Day#readme",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.1"
+  }
+}
