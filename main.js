@@ -1,6 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+
+import { render } from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
 import App from './App.jsx';
-/*
-ReactDOM.render(<App headerProp = "Ban anh Liem" contentProp = "Khong phai ban anh Liem"/>,document.getElementById('app'));*/
-ReactDOM.render(<App />,document.getElementById('app'));
+import todoApp from './reducers/reducers'
+
+let store = createStore(todoApp);
+let rootElement = document.getElementById('app');
+
+render(
+    <Provider store ={store}>
+        <App/>
+    </Provider>,
+    rootElement
+)

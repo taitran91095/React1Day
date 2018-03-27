@@ -1,8 +1,8 @@
 var config = {
-    entry: './app/main.js',
+    entry: './main.js',
 	output: {
 		path:'/',
-		filename: 'bundle.js'
+		filename: 'index.js'
 	},
 	devServer:{
 		inline: true,
@@ -11,7 +11,7 @@ var config = {
     module:{
         rules:[
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use:[
                     {

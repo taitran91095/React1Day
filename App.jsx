@@ -1,60 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import ReactDom from 'react-dom';
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {addTodo} from './actions/action'
 
-class App extends React.Component {
-    constructor(props){
-        super(props);
+import AddTodo from './components/AddTodo.jsx'
+import TodoList from './components/TodoList.jsx'
 
-        this.state = {
-            data :[
-                {
-                    component:'First...',
-                    id:1
-                },
-                {
-                    component:'Second...',
-                    id:2
-                },
-                {
-                    component:'Third...',
-                    id:3
-                }
-            ]
-        }
-
-        this.updateState= this.updateState.bind(this);
-        this.clearInput = this.clearInput.bind(this);
-    };
-    
-    updateState(e){
-        this.setState({data: e.target.value});
-    } 
-
-    clearInput(){
-        this.setState({data:''});
-        ReactDom.findDOMNode(this.refs.myInput).focus()
-    }
-    
+class App extends Component{
     render(){
-        return(
+        const {dispatch, visibleTodos} = this.props;
+        return (
             <div>
-                {this.state.data.map((dynamicComponent,i) => <Content
-                    key = {i} componentData={dynamicComponent} ></Content>)}
-            </div>
-        );
-    }
-}
-
-class Content extends React.Component{
-    render(){
-        return(
-            <div>
-                <div>{this.props.componentData.component}</div>
-                <div>{this.props.componentData.id}</div>
+                <AddTodo onAddClick = {text => dispatch(addTodo(text))} />
+                <TodoList todos = {visibleTodos} />
             </div>
         )
     }
 }
-
-export default App;
+function select(state){
+    return{
+        visibleTodos:state.todos
+    }
+}
+export default connect(select)(App);
